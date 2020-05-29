@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>College</title>
+    <link rel="stylesheet" href="/open/riscss.css">
+    <link rel="stylesheet" href="/open/campus.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+.w3-table-all{border-collapse:collapse; border-radius: 3px;border-spacing:0;width:100%;display:table}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-hoverable tbody tr:hover,.w3-ul.w3-hoverable li:hover{background-color:#ccc}.w3-centered tr th,.w3-centered tr td{text-align:center}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:8px 8px;border-radius: 3px;max-width: 40px;display:table-cell;text-align:left;vertical-align:top}
+.w3-table th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px}
+    td{
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-size: 13px;border-radius: 3px;
+    }
+    </style>
+    <style>
+      .searchhappens{
+        padding-top: 6%;
+        animation: none !important;
+      }
+      @keyframes searchhappensup{
+        from{padding-top: 6%;} to{padding-top: 0px}
+      }
+    </style>
+  </head>
+  <body class="campusbg">
+        <div class="top_bar" style="text-align: right">
+          <button class="top_bar_btn" onclick='socket.emit("page", {url:"lg"})'><code>HOME</code></button>
+          <a class="btnspace">|</a>
+          <button class="top_bar_btn" onclick='socket.emit("page", {url:"lg"})'><code>LOGIN</code></button>
+          <a class="btnspace">|</a>
+          <button class="top_bar_btn" onclick='socket.emit("page", {url:"sg"})'><code>SIGNUP</code></button>
+        </div>
+
+      <main id="main" class="searchhappens">
+
+      </main>
+  </body>
+</html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket=io.connect('/');
+  var JWT="";
+  socket.on('connected', function (data) {
+    if(null==(JWT=localStorage.getItem("JWT"))){
+      JWT = ""
+      socket.emit("page", {url:"sg"})
+    }else{
+      socket.emit("page", {url:"db"})
+    }
+  });
+  socket.on('page', (data)=>{
+    history.pushState({},"",data.url);
+    document.getElementById('main').innerHTML = data.data;
+  })
+
+  socket.on('signup', (data)=>{
+    if(data.err){
+      document.getElementById('response').innerHTML = data.errmsg; return;
+    }
+    localStorage.setItem("JWT", (JWT = data.JWT));
+    document.getElementById('response').innerHTML = "success";
+    socket.emit("page", {url:"db"})
+  })
+
+  socket.on('login', (data)=>{
+    if(data.err){
+      document.getElementById('response').innerHTML = data.errmsg; return;
+    }
+    localStorage.setItem("JWT", (JWT = data.JWT));
+    document.getElementById('response').innerHTML = "welcome back";
+    socket.emit("page", {url:"db"})
+  })
+  socket.on('profile', (data)=>{
+    console.log(data)
+    document.getElementById('fullname').value = data.name;
+    document.getElementById('college').value = data.college;
+    document.getElementById('table').removeAttribute('hidden')
+  })
+  socket.on("changepass", (data)=>{
+    if(data.err){document.getElementById('response').innerHTML = data.errmsg;}
+    else{
+      document.getElementById('response').innerHTML = "Changed";
+    }
+  })
+</script>
