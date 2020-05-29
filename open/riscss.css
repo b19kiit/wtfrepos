@@ -1,0 +1,146 @@
+button,a, input{
+    outline: none;
+  }
+  .top_bar{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height: 50px;
+    background-color:rgb(52,52,72);
+    overflow: hidden;
+    box-shadow: 1px 1px 2px gray;
+    z-index: 4;
+  }
+  .btnspace{
+    font-size:24px; color:linen;
+  }
+  .top_bar_btn{
+    height: 50px;
+    background-color: rgba(0,0,0,0); border:0;
+    font-size:20px; font-weight: 400;
+    padding-left: 16px; padding-right: 16px;
+    color:linen;
+  }
+  .top_bar_btn:disabled{
+    background-color: rgb(65, 65, 88);
+    border-radius: 8px;
+    border-left: 2px solid rgb(55, 55, 77);
+    border-right: 2px solid rgb(55, 55, 77);
+    margin-left: -2px; margin-right: -2px;
+  }
+  .top_bar_btn:hover,.top_bar_btn:focus{
+    color: white;
+    background-color: rgb(62, 62, 87);
+    border-radius: 8px;
+    border-left: 2px solid rgb(55, 55, 77);
+    border-right: 2px solid rgb(55, 55, 77);
+    margin-left: -2px; margin-right: -2px;
+  }
+
+  .leftbar{
+    position: fixed;
+    left:0;
+    top:0;
+    width: 25%;
+    min-width: 250px;
+    height: 100%;
+  }
+
+  .RISUI_bar_link{
+    padding: 12px;
+    border: 0;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: 600;
+    overflow: hidden;
+    text-align: left;
+    margin-top: 4px;
+    font-size: 16px;
+    background-color: rgb(248, 248, 248);
+    box-shadow: 0.5px 0.5px 1.5px gray;
+  }
+  .RISUI_bar_link:focus, .RISUI_bar_link:active{
+    box-shadow:none;
+    background-color: rgb(212, 212, 212);
+  }
+
+  main{
+    position: relative;
+    top: 70px;
+    left:0;
+    width: 100%;
+  }
+
+  .RISUI_parent_block{
+    padding: 23px;
+    align-self: center;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px gray;
+    margin: 8px;
+    margin-bottom: 40px;
+    padding-top:10px;
+  }
+  .RISUI_block{
+    padding: 20px;
+    align-self: center;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px gray;
+    margin: 8px;
+    padding-top:10px;
+  }
+  .RISUI_bigsearch_input{
+    border: none;
+    box-shadow: 2px 2px 4px rgb(133, 148, 153);
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 14px;padding-left: 20px;
+    min-width: 200px;
+    width: 60%;
+    color: rgb(63, 62, 62);
+    background-color: rgb(245, 245, 245);
+  }
+  .RISUI_bigsearch_input:focus{
+    background-color: white;
+    box-shadow: 3px 4px 6px rgb(149, 158, 161);
+  }
+  .RISUI_input{
+    border: 2px solid rgb(100, 100, 100);
+    border-radius: 3px;
+    padding: 4px;
+    padding-left: 7px;
+    font-size: 18px;
+  }
+  .RISUI_input:focus{
+    border-color: black;
+  }
+  .NaughtyButton{
+    padding: 8px;
+    border-radius: 4px;
+    border:none;
+    background-color: rgb(43, 122, 11);
+    color: aliceblue;
+    margin: 10px;
+  }
+  .NaughtyButton:focus{
+    background-color: rgb(55, 155, 15);
+  }
+  .NaughtyButton:active{
+    background-color: rgb(55, 155, 15);
+  }
+  .NaughtyButton:disabled{
+    background-color: grey;
+  }
+  .NaughtyBG{
+    background-color: rgb(207, 211, 211);
+    animation: waving 1s infinite;
+    height: 200px;
+    width: 99%;
+    color: white; font-weight: 900;
+    border-radius: 1px;
+    border:0;
+    margin:2px;
+  }
+  @keyframes waving{
+    0%{background-color: rgb(200, 212, 212);} 50%{background-color: #ddd}
+  }
