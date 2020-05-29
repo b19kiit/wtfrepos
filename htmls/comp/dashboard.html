@@ -1,0 +1,27 @@
+<center>
+        <div class="RISUI_parent_block" style="text-align: left; background-color: rgba(255, 255, 255, 0.959)">
+                <h1 style="color: rgb(82, 82, 82); font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">DASHBOARD</h1>
+            <center>
+                <div class="RISUI_block" style="font-size: 20px">
+                    <button class="NaughtyButton" onclick="
+                        socket.emit('profile', {JWT:JWT})
+                        "><b>Check Profile</b></button>
+                    <br>
+                        <table id="table" hidden>
+                            <tr>
+                                <td style="font-size: 20px"><code>Full Name</code></td>
+                                      <td>:</td>
+                                <td><input disabled id="fullname"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px"><code>College</code></td>
+                                <td>:</td>
+                                <td><input disabled id="college"></td>
+                            </tr>
+                        </table>
+
+                        <button class="NaughtyButton" onclick='socket.emit("page", {url:"cp"})'><b>Change password</b></button>
+                </div>
+            </center>
+        </div>
+    </center>

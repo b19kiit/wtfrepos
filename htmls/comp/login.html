@@ -1,0 +1,27 @@
+<center>
+        <div class="RISUI_parent_block" style="text-align: left; background-color: rgba(255, 255, 255, 0.959)">
+            <h1 style="color: rgb(82, 82, 82); font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">LOG_IN</h1>
+            <center>
+                <div class="RISUI_block" style="font-size: 20px">
+                    <br>
+                        <table>
+                            <tr>
+                                <td style="font-size: 20px"><code>Username</code></td>
+                                      <td>:</td>
+                                <td><input autofocus class="RISUI_input" type="text" id="username" name="username" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px"><code>Password</code></td>
+                                      <td>:</td>
+                                <td><input autofocus class="RISUI_input" placeholder="" type="password" name="password" id="pass"></td>
+                            </tr>
+                        </table>
+                        <button class="NaughtyButton" onclick="
+                            socket.emit('login', {username:document.getElementById('username').value,
+                            password:document.getElementById('pass').value});
+                        "><b>Login</b></button>
+                        <p id="response" style="font-size: 14px; font-family: monospace; font-weight: 600"></p>
+                </div>
+            </center>
+        </div>
+    </center>

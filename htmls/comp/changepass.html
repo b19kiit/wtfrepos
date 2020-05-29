@@ -1,0 +1,27 @@
+<center>
+        <div class="RISUI_parent_block" style="text-align: left; background-color: rgba(255, 255, 255, 0.959)">
+            <h1 style="color: rgb(82, 82, 82); font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Change_Paswsword</h1>
+            <center>
+                <div class="RISUI_block" style="font-size: 20px">
+                    <br>
+                        <table>
+                            <tr>
+                                <td style="font-size: 20px"><code>Old_Password</code></td>
+                                      <td>:</td>
+                                <td><input autofocus class="RISUI_input" placeholder="" type="password" id="opass"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 20px"><code>New_Password</code></td>
+                                    <td>:</td>
+                                <td><input autofocus class="RISUI_input" placeholder="" type="password" id="npass"></td>
+                            </tr>
+                        </table>
+                        <button class="NaughtyButton" onclick="
+                            socket.emit('changepass', {JWT:JWT,opass:document.getElementById('opass').value,
+                            npass:document.getElementById('npass').value});
+                        "><b>Login</b></button>
+                        <p id="response" style="font-size: 14px; font-family: monospace; font-weight: 600"></p>
+                </div>
+            </center>
+        </div>
+    </center>
