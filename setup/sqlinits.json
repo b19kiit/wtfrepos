@@ -1,0 +1,9 @@
+[
+    "CREATE DATABASE videodb","CREATE DATABASE cityblog",
+    "INSERT INTO system VALUES",
+    "CREATE TABLE email_verifications (isotime BIGINT UNSIGNED NOT NULL, email_id VARCHAR(64) NOT NULL, email_host varchar(64) NOT NULL, url varchar(32) NOT NULL, PRIMARY KEY (email_id, email_host))",
+    "CREATE TABLE users (uindex BIGINT UNSIGNED NOT NULL, uname VARCHAR(64) UNIQUE, email_id VARCHAR(64), email_host varchar(64), phone_no VARCHAR(16), logged_keys_json MEDIUMTEXT,PRIMARY KEY (uindex))",
+    "CREATE TABLE userdir (uindex BIGINT UNSIGNED, cred_json MEDIUMTEXT, small_dp MEDIUMBLOB, medium_dp MEDIUMBLOB, max_dp MEDIUMBLOB, user_page LONGBLOB )",
+    "CREATE TABLE articles(uindex BIGINT UNSIGNED, rate BIGINT UNSIGNED, catagory BIGINT UNSIGNED, url char(10), title varchar(128), description_json MEDIUMTEXT, raw_data LONGTEXT, html_data LONGTEXT )"
+,    "SELECT * FROM users"
+]
